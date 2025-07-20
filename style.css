@@ -1,0 +1,42 @@
+body {
+  background-color: #111111;
+  color: #EEEEEE;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.container {
+  text-align: center;
+}
+h1 {
+  color: #A855F7;
+  font-size: 2.5em;
+  margin-bottom: 0.3em;
+}
+.subtitle {
+  color: #CCCCCC;
+  margin-bottom: 2em;
+}
+button {
+  background-color: #8B5CF6;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 15px 25px;
+  font-size: 1em;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 0 8px #8B5CF6;
+}
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #8B5CF6;
+}
+#status {
+  margin-top: 2em;
+  color: #AAAAAA;
+}
