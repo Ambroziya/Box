@@ -1,0 +1,30 @@
+
+function triggerEffect(type) {
+  let status = document.getElementById("status");
+  let audio = new Audio();
+  switch(type) {
+    case '12d':
+      document.body.style.transition = "all 0.3s";
+      document.body.style.transform = "rotate(2deg)";
+      status.textContent = "12D активирован. Вы вне времени.";
+      audio.src = "https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg";
+      break;
+    case 'byte':
+      status.textContent = "Сжато до 1 байта. Поздравляем.";
+      audio.src = "https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg";
+      break;
+    case 'mind':
+      status.textContent = "Сканирование мозга... Ошибка!";
+      audio.src = "https://actions.google.com/sounds/v1/alarms/beep_short.ogg";
+      break;
+  }
+  audio.play();
+  setTimeout(() => document.body.style.transform = "rotate(0deg)", 300);
+}
+
+window.onload = function() {
+  setTimeout(() => {
+    document.getElementById("splash").style.display = "none";
+    document.querySelector(".container").style.display = "block";
+  }, 2500);
+}
