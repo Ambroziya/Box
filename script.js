@@ -1,49 +1,34 @@
 
+let vpnOn = false;
+
 function playSound(id) {
     document.getElementById(id).play();
 }
 
-let vpnState = false;
 function toggleVPN() {
-    vpnState = !vpnState;
-    document.getElementById('vpnBtn').innerText = vpnState ? 'VPN подключён' : 'VPN выключен';
+    vpnOn = !vpnOn;
+    document.getElementById("vpnBtn").innerText = vpnOn ? "VPN подключён" : "VPN выключен";
 }
 
 function openChat() {
-    document.querySelector('.container').style.display = 'none';
-    document.getElementById('chatContainer').style.display = 'flex';
+    document.querySelector(".container").style.display = "none";
+    document.getElementById("chat").classList.remove("hidden");
 }
 
 function closeChat() {
-    document.getElementById('chatContainer').style.display = 'none';
-    document.querySelector('.container').style.display = 'block';
+    document.querySelector(".container").style.display = "block";
+    document.getElementById("chat").classList.add("hidden");
 }
 
 function sendMessage() {
-    const input = document.getElementById('chatInput');
-    const message = input.value.trim();
-    if (!message) return;
-
-    const chatBox = document.getElementById('chatBox');
-    const userMsg = document.createElement('div');
-    userMsg.textContent = "Вы: " + message;
-    chatBox.appendChild(userMsg);
-
-    const botMsg = document.createElement('div');
-    botMsg.textContent = "S.E.R.G: " + getFakeReply(message);
-    chatBox.appendChild(botMsg);
-
-    input.value = '';
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-function getFakeReply(msg) {
-    const responses = [
-        "Обработка завершена.",
-        "Провожу анализ нейросети...",
-        "Сигнал получен.",
-        "Подключение к серверу Ватикана...",
-        "Нейросинтез выполнен."
-    ];
-    return responses[Math.floor(Math.random() * responses.length)];
+    const input = document.getElementById("chatInput");
+    const msg = input.value.trim();
+    if (msg) {
+        const chatBox = document.getElementById("chatMessages");
+        const p = document.createElement("p");
+        p.textContent = "Вы: " + msg;
+        chatBox.appendChild(p);
+        input.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
 }

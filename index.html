@@ -2,43 +2,40 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="manifest" href="manifest.json" />
-    <link rel="icon" href="icon/icon.png" />
-    <link rel="stylesheet" href="style.css" />
-    <title>S.E.R.G</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERG</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Добро пожаловать в <span class="accent">SERG</span></h1>
+        <h1>Добро пожаловать в <span class="highlight">SERG</span></h1>
         <p class="subtitle">MAX больше не существует</p>
         <div class="buttons">
-            <button onclick="playSound('bzzz')">Запустить в 12D</button>
-            <button onclick="playSound('vzhuh')">Сжать до 1 байта</button>
-            <button onclick="playSound('piu')">Управлять силой мысли</button>
+            <button onclick="playSound('vzhu')">Запустить в 12D</button>
+            <button onclick="playSound('piu')">Сжать до 1 байта</button>
+            <button onclick="playSound('bzzz')">Управлять силой мысли</button>
             <button id="vpnBtn" onclick="toggleVPN()">VPN выключен</button>
             <button onclick="openChat()">Чат</button>
         </div>
-        <p class="footer">Сервер перегрет. Это норма.</p>
+        <p class="status">Сервер перегрет. Это норма.</p>
     </div>
 
-    <div class="chat-container" id="chatContainer" style="display:none;">
+    <div id="chat" class="hidden">
         <div class="chat-header">
             <button onclick="closeChat()">← Назад</button>
-            <span>Чат</span>
+            <h2>Чат</h2>
         </div>
-        <div class="chat-box" id="chatBox"></div>
+        <div class="chat-messages" id="chatMessages"></div>
         <div class="chat-input">
-            <input type="text" id="chatInput" placeholder="Введите сообщение..." />
+            <input type="text" id="chatInput" placeholder="Введите сообщение..." onkeydown="if(event.key === 'Enter') sendMessage()">
             <button onclick="sendMessage()">Отправить</button>
         </div>
     </div>
 
-    <audio id="bzzz" src="bzzz.mp3"></audio>
+    <audio id="vzhu" src="vzhu.mp3"></audio>
     <audio id="piu" src="piu.mp3"></audio>
-    <audio id="vzhuh" src="vzhuh.mp3"></audio>
-
+    <audio id="bzzz" src="bzzz.mp3"></audio>
     <script src="script.js"></script>
 </body>
 </html>
