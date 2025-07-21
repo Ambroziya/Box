@@ -1,41 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SERG</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SERG</title>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="apple-touch-icon" href="icons/icon.png">
+  <link rel="icon" href="icons/icon.png" type="image/png">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <div class="container">
-        <h1>Добро пожаловать в <span class="highlight">SERG</span></h1>
-        <p class="subtitle">MAX больше не существует</p>
-        <div class="buttons">
-            <button onclick="playSound('vzhu')">Запустить в 12D</button>
-            <button onclick="playSound('piu')">Сжать до 1 байта</button>
-            <button onclick="playSound('bzzz')">Управлять силой мысли</button>
-            <button id="vpnBtn" onclick="toggleVPN()">VPN выключен</button>
-            <button onclick="openChat()">Чат</button>
-        </div>
-        <p class="status">Сервер перегрет. Это норма.</p>
-    </div>
+  <div id="splash">
+    <div class="s-logo">S</div>
+    <div class="spinner"></div>
+    <div id="splash-text" class="splash-text"></div>
+  </div>
 
-    <div id="chat" class="hidden">
-        <div class="chat-header">
-            <button onclick="closeChat()">← Назад</button>
-            <h2>Чат</h2>
-        </div>
-        <div class="chat-messages" id="chatMessages"></div>
-        <div class="chat-input">
-            <input type="text" id="chatInput" placeholder="Введите сообщение..." onkeydown="if(event.key === 'Enter') sendMessage()">
-            <button onclick="sendMessage()">Отправить</button>
-        </div>
-    </div>
+  <div class="container" style="display:none;">
+    <h1>Добро пожаловать в SERG</h1>
+    <p class="subtitle">MAX больше не существует</p>
+    <button onclick="triggerEffect('12d')">Запустить в 12D</button>
+    <button onclick="triggerEffect('byte')">Сжать до 1 байта</button>
+    <button onclick="triggerEffect('mind')">Управлять силой мысли</button>
+    <br><br>
+    <button onclick="toggleVPN()" id="vpn-btn">VPN выключен</button>
+    <div id="status">Сервер перегрет. Это норма.</div>
+  </div>
 
-    <audio id="vzhu" src="vzhu.mp3"></audio>
-    <audio id="piu" src="piu.mp3"></audio>
-    <audio id="bzzz" src="bzzz.mp3"></audio>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
