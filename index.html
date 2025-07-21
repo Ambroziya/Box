@@ -1,42 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SERG</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="icon/icon.png" type="image/png" />
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="apple-touch-icon" href="icons/icon.png">
+  <link rel="icon" href="icons/icon.png" type="image/png">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div id="loader">
-    <div id="loading-circle"></div>
-    <div id="loading-text"></div>
+  <div id="splash">
+    <div class="s-logo">S</div>
+    <div class="spinner"></div>
+    <div id="splash-text" class="splash-text"></div>
   </div>
-  <div id="main" class="hidden">
-    <h1>Добро пожаловать в<br>SERG</h1>
-    <p>MAX больше не существует</p>
-    <div class="buttons">
-      <button onclick="playEffect('12d')">Запустить в 12D</button>
-      <button onclick="playEffect('compress')">Сжать до 1 байта</button>
-      <button onclick="playEffect('mind')">Управлять силой мысли</button>
-      <button onclick="toggleVPN()" id="vpn-btn">VPN выключен</button>
-      <button onclick="toggleChat()">Чат</button>
-    </div>
-    <p>Сервер перегрет. Это норма.</p>
+
+  <div class="container" style="display:none;">
+    <h1>Добро пожаловать в SERG</h1>
+    <p class="subtitle">MAX больше не существует</p>
+    <button onclick="triggerEffect('12d')">Запустить в 12D</button>
+    <button onclick="triggerEffect('byte')">Сжать до 1 байта</button>
+    <button onclick="triggerEffect('mind')">Управлять силой мысли</button>
+    <br><br>
+    <button onclick="toggleVPN()" id="vpn-btn">VPN выключен</button>
+    <div id="status">Сервер перегрет. Это норма.</div>
   </div>
-  <div id="chat" class="hidden">
-    <div class="chat-header">
-      <button onclick="toggleChat()">&larr; Назад</button>
-      <span>Чат</span>
-    </div>
-    <div id="chat-messages"></div>
-    <div class="chat-input">
-      <input type="text" id="chat-input" placeholder="Введите сообщение..." />
-      <button onclick="sendMessage()">Отправить</button>
-    </div>
-  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

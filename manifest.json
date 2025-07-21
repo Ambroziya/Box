@@ -1,15 +1,15 @@
 
 {
-  "name": "S.E.R.G",
+  "name": "SERG",
   "short_name": "SERG",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#111111",
-  "theme_color": "#a855f7",
+  "background_color": "#000000",
+  "theme_color": "#8B5CF6",
   "icons": [
     {
-      "src": "icon/icon.png",
-      "sizes": "192x192",
+      "src": "icons/icon.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]

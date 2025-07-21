@@ -1,51 +1,41 @@
 
-let vpnStatus = false;
-const loader = document.getElementById('loader');
-const loadingCircle = document.getElementById('loading-circle');
-const loadingText = document.getElementById('loading-text');
-const main = document.getElementById('main');
-const chat = document.getElementById('chat');
-const vpnBtn = document.getElementById('vpn-btn');
-
-function playEffect(type) {
-  const sound = new Audio(type + ".mp3");
-  sound.play();
+function triggerEffect(type) {
+  let status = document.getElementById("status");
+  let audio = new Audio();
+  switch(type) {
+    case '12d':
+      document.body.style.transition = "all 0.3s";
+      document.body.style.transform = "rotate(2deg)";
+      status.textContent = "12D активирован. Вы вне времени.";
+      audio.src = "https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg";
+      break;
+    case 'byte':
+      status.textContent = "Сжато до 1 байта. Поздравляем.";
+      audio.src = "https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg";
+      break;
+    case 'mind':
+      status.textContent = "Сканирование мозга... Ошибка!";
+      audio.src = "https://actions.google.com/sounds/v1/alarms/beep_short.ogg";
+      break;
+  }
+  audio.play();
+  setTimeout(() => document.body.style.transform = "rotate(0deg)", 300);
 }
-
 function toggleVPN() {
-  vpnStatus = !vpnStatus;
-  vpnBtn.innerText = vpnStatus ? "VPN подключён" : "VPN выключен";
+  let btn = document.getElementById("vpn-btn");
+  if (btn.textContent.includes("выключен")) {
+    btn.textContent = "VPN подключён";
+  } else {
+    btn.textContent = "VPN выключен";
+  }
 }
-
-function toggleChat() {
-  main.classList.toggle('hidden');
-  chat.classList.toggle('hidden');
-}
-
-function sendMessage() {
-  const input = document.getElementById("chat-input");
-  const message = input.value;
-  if (message.trim() === "") return;
-  const chatMessages = document.getElementById("chat-messages");
-  const div = document.createElement("div");
-  div.textContent = "Вы: " + message;
-  chatMessages.appendChild(div);
-  input.value = "";
-}
-
-function runLoaderAnimation() {
-  loadingText.textContent = "Загружаем ваши данные...";
+window.onload = function() {
+  const splashText = document.getElementById("splash-text");
+  setTimeout(() => { splashText.textContent = "загружаем ваши данные..."; }, 200);
+  setTimeout(() => { splashText.textContent = "отправляем данные в ФСБ..."; }, 2200);
+  setTimeout(() => { splashText.textContent = ""; }, 4200);
   setTimeout(() => {
-    loadingCircle.style.animation = "spinLeft 2s linear forwards";
-    loadingText.textContent = "Отправляем данные в ФСБ...";
-    setTimeout(() => {
-      loadingText.textContent = "";
-      setTimeout(() => {
-        loader.style.display = "none";
-        main.classList.remove("hidden");
-      }, 1500);
-    }, 2000);
-  }, 2000);
+    document.getElementById("splash").style.display = "none";
+    document.querySelector(".container").style.display = "block";
+  }, 5700);
 }
-
-window.onload = runLoaderAnimation;
