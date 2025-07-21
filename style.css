@@ -1,0 +1,93 @@
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0d0d0d;
+  color: white;
+  text-align: center;
+}
+h1 {
+  color: #b266ff;
+  font-size: 2em;
+}
+.button-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: 2em 0;
+}
+button {
+  padding: 1em;
+  font-size: 1em;
+  background-color: #b266ff;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 0 8px #b266ff;
+}
+.footer {
+  margin-top: 2em;
+  font-size: 0.9em;
+  color: #ccc;
+}
+#loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+#loader-circle {
+  border: 8px solid #333;
+  border-top: 8px solid #b266ff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin-right 2s linear;
+}
+#loader-text {
+  margin-top: 1em;
+  font-size: 1.1em;
+  color: #b266ff;
+}
+@keyframes spin-right {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes spin-left {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+.hidden {
+  display: none;
+}
+#chat-box {
+  padding: 1em;
+  height: 50vh;
+  overflow-y: auto;
+  text-align: left;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+}
+.chat-input {
+  display: flex;
+  padding: 1em;
+  background-color: #1a1a1a;
+}
+.chat-input input {
+  flex: 1;
+  padding: 0.5em;
+  margin-right: 0.5em;
+  border-radius: 8px;
+  border: none;
+}
+.chat-header {
+  display: flex;
+  align-items: center;
+  background-color: #b266ff;
+  padding: 1em;
+}
+.chat-header h2 {
+  flex: 1;
+  margin: 0;
+}
